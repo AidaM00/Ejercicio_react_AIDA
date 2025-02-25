@@ -68,10 +68,10 @@ function Calculator() {
   return (
     <div className="calculator-container">
       <div className="calculator-card">
-        <h2 className="title">CALCULADORA</h2>
+        <h2 className="title">🔢 CALCULADORA 🔢</h2>
 
         <input
-          type="text"
+          type="number"
           className="calculator-input"
           placeholder="Número A"
           value={numA}
@@ -81,7 +81,7 @@ function Calculator() {
           }}
         />
         <input
-          type="text"
+          type="number"
           className="calculator-input"
           placeholder="Número B"
           value={numB}
