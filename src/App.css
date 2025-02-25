@@ -1,0 +1,200 @@
+/* Fondo con un degradado más dinámico en tonos azulados */
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Contenedor principal */
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Tarjeta de la calculadora */
+.calculator-card {
+  background: rgba(0, 102, 204, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 102, 204, 0.3);
+  text-align: center;
+  width: 360px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Título */
+.title {
+  color: #cce7ff;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Inputs */
+.calculator-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  color: #cce7ff;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto en inputs */
+.calculator-input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* Placeholder */
+.calculator-input::placeholder {
+  color: rgba(204, 231, 255, 0.6);
+}
+
+/* Grupo de botones */
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Botones */
+.calculator-button {
+  background: rgba(0, 174, 255, 0.4);
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 65px;
+  height: 65px;
+  box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
+}
+
+/* Efecto hover en botones */
+.calculator-button:hover {
+  background: rgba(0, 174, 255, 0.6);
+  transform: scale(1.15);
+  box-shadow: 0 5px 20px rgba(0, 174, 255, 0.7);
+}
+
+/* Botón activo */
+.calculator-button.active {
+  background: rgba(0, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #ff4f4f;
+  background: rgba(255, 0, 0, 0.3);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Resultado */
+.result {
+  color: #cce7ff;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(0, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Botones inferiores */
+.bottom-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Botón para limpiar */
+.clear-button,
+.history-toggle {
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.15); /* 📌 Ahora tiene el mismo fondo que los inputs */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+  width: 48%;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Hover para ambos botones */
+.clear-button:hover,
+.history-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor del historial */
+.history-container {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(0, 102, 204, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 102, 204, 0.4);
+  border-radius: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* Título del historial */
+.history-container h4 {
+  color: #cce7ff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Lista del historial */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada ítem del historial */
+.history-list li {
+  padding: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cce7ff;
+  font-size: 16px;
+}
+
+/* Último elemento sin borde */
+.history-list li:last-child {
+  border-bottom: none;
+}
+
+/* Mensaje si no hay historial */
+.empty-history {
+  text-align: center;
+  font-style: italic;
+  color: rgba(204, 231, 255, 0.6);
+}
