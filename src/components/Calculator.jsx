@@ -8,7 +8,7 @@ function Calculator() {
   const [operation, setOperation] = useState(null);
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
-  const [history, setHistory] = useState([]); 
+  const [history, setHistory] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
 
   const operations = {
@@ -20,7 +20,7 @@ function Calculator() {
 
   const validateInputs = () => {
     if (numA === "" || numB === "") {
-      setError("⚠️ Ingresa ambos números");
+      setError("⚠️ Ingresa ambos números.");
       setOperation(null);
       return false;
     }
@@ -29,7 +29,7 @@ function Calculator() {
     const b = parseFloat(numB);
 
     if (isNaN(a) || isNaN(b)) {
-      setError("⚠️ Solo se permiten números");
+      setError("⚠️ Solo se permiten números.");
       setOperation(null);
       return false;
     }
@@ -52,11 +52,11 @@ function Calculator() {
     } else {
       setResult(res);
       setOperation(op);
-      setHistory([{ a, op, b, res }, ...history].slice(0, 5)); // Solo mantiene las últimas 5 operaciones
+      setHistory([{ a, op, b, res }, ...history].slice(0, 5));
     }
   };
 
-  // Función para limpiar los inputs y operadores
+  // 📌 Nueva función para limpiar los inputs y operadores
   const handleClear = () => {
     setNumA("");
     setNumB("");
@@ -68,21 +68,27 @@ function Calculator() {
   return (
     <div className="calculator-container">
       <div className="calculator-card">
-        <h2 className="title">🔢 CALCULADORA 🔢</h2>
+        <h2 className="title">CALCULADORA</h2>
 
         <input
           type="text"
           className="calculator-input"
           placeholder="Número A"
           value={numA}
-          onChange={(e) => setNumA(e.target.value)}
+          onChange={(e) => {
+            setNumA(e.target.value);
+            setResult(null); // 📌 Oculta el resultado al cambiar el input
+          }}
         />
         <input
           type="text"
           className="calculator-input"
           placeholder="Número B"
           value={numB}
-          onChange={(e) => setNumB(e.target.value)}
+          onChange={(e) => {
+            setNumB(e.target.value);
+            setResult(null); // 📌 Oculta el resultado al cambiar el input
+          }}
         />
 
         {error && <div className="error-message">{error}</div>}
@@ -99,7 +105,7 @@ function Calculator() {
           ))}
         </div>
 
-        {result !== null && !error && (
+        {operation && result !== null && !error && (
           <div className="result">
             <h4>
               {numA} {operation} {numB} = {result}
@@ -107,6 +113,7 @@ function Calculator() {
           </div>
         )}
 
+        {/* 📌 Botones alineados en la parte inferior */}
         <div className="bottom-buttons">
           <button className="clear-button" onClick={handleClear}>
             🧹 Limpiar
@@ -116,6 +123,7 @@ function Calculator() {
           </button>
         </div>
 
+        {/* Historial desplegable */}
         {showHistory && <History history={history} />}
       </div>
     </div>
